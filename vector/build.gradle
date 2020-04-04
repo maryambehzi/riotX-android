@@ -66,6 +66,15 @@ static def gitBranchName() {
     }
 }
 
+// For SabaOs build, build on a not tagged commit will have a "-dev" suffix
+static def getSabaOsVersionSuffix() {
+    if (gitTag() == "") {
+        return "-dev"
+    } else {
+        return ""
+    }
+}
+
 // For Google Play build, build on any other branch than master will have a "-dev" suffix
 static def getGplayVersionSuffix() {
     if (gitBranchName() == "master") {
@@ -220,6 +229,17 @@ android {
             buildConfigField "boolean", "ALLOW_FCM_USE", "false"
             buildConfigField "String", "SHORT_FLAVOR_DESCRIPTION", "\"F\""
             buildConfigField "String", "FLAVOR_DESCRIPTION", "\"FDroid\""
+        }
+        sabaos {
+            dimension "store"
+
+            versionName "${versionMajor}.${versionMinor}.${versionPatch}${getSabaOsVersionSuffix()}"
+
+            resValue "bool", "isGplay", "false"
+            buildConfigField "boolean", "ALLOW_FCM_USE", "false"
+            buildConfigField "String", "SHORT_FLAVOR_DESCRIPTION", "\"S\""
+            buildConfigField "String", "FLAVOR_DESCRIPTION", "\"SabaOsF\""
+
         }
     }
 

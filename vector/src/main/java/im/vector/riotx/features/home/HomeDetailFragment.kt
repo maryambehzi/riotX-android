@@ -237,6 +237,6 @@ class HomeDetailFragment @Inject constructor(
     private fun RoomListDisplayMode.toMenuId() = when (this) {
         RoomListDisplayMode.PEOPLE -> R.id.bottom_action_people
         RoomListDisplayMode.ROOMS  -> R.id.bottom_action_rooms
-        else                       -> R.id.bottom_action_home
+        else                       -> R.id.bottom_action_people
     }
 }
