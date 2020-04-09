@@ -230,6 +230,7 @@ android {
             buildConfigField "String", "SHORT_FLAVOR_DESCRIPTION", "\"F\""
             buildConfigField "String", "FLAVOR_DESCRIPTION", "\"FDroid\""
         }
+
         sabaos {
             dimension "store"
 
@@ -238,7 +239,7 @@ android {
             resValue "bool", "isGplay", "false"
             buildConfigField "boolean", "ALLOW_FCM_USE", "false"
             buildConfigField "String", "SHORT_FLAVOR_DESCRIPTION", "\"S\""
-            buildConfigField "String", "FLAVOR_DESCRIPTION", "\"SabaOsF\""
+            buildConfigField "String", "FLAVOR_DESCRIPTION", "\"SabaOs\""
 
         }
     }
